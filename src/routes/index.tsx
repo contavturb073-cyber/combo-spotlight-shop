@@ -352,13 +352,21 @@ function ImportedHeaderTopBar() {
   );
 }
 
-function ImportedSectionProductHero() {
+function ImportedSectionProductHero({
+  activeImageIndex,
+  onSelectImage,
+  onExpand,
+}: {
+  activeImageIndex: number;
+  onSelectImage: (index: number) => void;
+  onExpand: () => void;
+}) {
   return (
     <section className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white mb-0! pt-[12px] pr-[12px] pb-[8px] pl-[12px] relative" aria-label="Product hero">
       <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white rounded-[8px] overflow-hidden relative touch-pan-y w-full">
-        <img className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white block h-[360px] object-contain select-none w-full [-webkit-user-drag:none]" id="productImage" src="/site-assets/48875f566ad95a62.png" alt="Product image" />
+        <img className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white block h-[360px] object-contain select-none w-full [-webkit-user-drag:none]" id="productImage" src={productImages[activeImageIndex] ?? productImages[0]} alt={`Product image ${activeImageIndex + 1}`} />
         <div className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-(\x2d-blue) rounded-[6px] text-white text-[13px] font-bold left-[12px] leading-[1.05] p-[10px] absolute text-center top-[12px] w-[58px]"} aria-label="Discount badge">UP TO 65%<span className="block text-[12px] font-extrabold tracking-[0.2px] mt-[2px]">OFF</span></div>
-        <button className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x66fffffe6] \x62order \x62order-solid \x62order-[#\x300000014] rounded-[999px] cursor-pointer flex h-[34px] justify-center absolute right-[12px] top-[12px] w-[34px]"} id="expandBtn" aria-label="Expand image">
+        <button className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x66fffffe6] \x62order \x62order-solid \x62order-[#\x300000014] rounded-[999px] cursor-pointer flex h-[34px] justify-center absolute right-[12px] top-[12px] w-[34px]"} id="expandBtn" aria-label="Expand image" onClick={onExpand}>
           <svg className={"\x74ext-[#\x3222222] h-[18px] w-[18px]"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 3H3v6" />
             <path d="M15 21h6v-6" />
@@ -368,10 +376,15 @@ function ImportedSectionProductHero() {
         </button>
       </div>
       <div className="items-center flex gap-[10px] justify-center pt-[10px] pr-0 pb-0 pl-0" aria-label="Image carousel indicators">
-        <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] \x62g-(\x2d-blue) \x62order-0 rounded-[999px] cursor-pointer h-[10px] p-0 w-[10px]"} aria-label="Image 1" />
-        <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] \x62g-[#\x63fcfcf] \x62order-0 rounded-[999px] cursor-pointer h-[10px] p-0 w-[10px]"} aria-label="Image 2" />
-        <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] \x62g-[#\x63fcfcf] \x62order-0 rounded-[999px] cursor-pointer h-[10px] p-0 w-[10px]"} aria-label="Image 3" />
-        <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] \x62g-[#\x63fcfcf] \x62order-0 rounded-[999px] cursor-pointer h-[10px] p-0 w-[10px]"} aria-label="Image 4" />
+        {productImages.map((_, index) => (
+          <button
+            key={index}
+            className={`bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] ${activeImageIndex === index ? "bg-(--blue)" : "bg-[#cfcfcf]"} border-0 rounded-[999px] cursor-pointer h-[10px] p-0 w-[10px]`}
+            aria-label={`Image ${index + 1}`}
+            aria-pressed={activeImageIndex === index}
+            onClick={() => onSelectImage(index)}
+          />
+        ))}
       </div>
     </section>
   );
@@ -530,12 +543,18 @@ function ImportedSectionStockAndDeliveryInformation() {
   );
 }
 
-function ImportedSectionDescription() {
+function ImportedSectionDescription({
+  expanded,
+  onToggle,
+}: {
+  expanded: boolean;
+  onToggle: () => void;
+}) {
   return (
     <section className="pt-[6px] pr-[12px] pb-0 pl-[12px] [border-top:1px_solid_rgb(240,240,240)]" aria-label="Description">
       <h2 className="text-site-import-foreground text-[18px] font-semibold mt-[16px] mr-0 mb-[10px] ml-0">Description</h2>
-      <div className="desc-box relative is-collapsed" id="descBox">
-        <div className={"\x74ext-[#\x3333333] text-[14px] leading-normal max-h-[210px] overflow-hidden"} id="descContent">
+      <div className={`desc-box relative ${expanded ? "" : "is-collapsed"}`} id="descBox">
+        <div className={`\x74ext-[#\x3333333] text-[14px] leading-normal overflow-hidden ${expanded ? "" : "max-h-[210px]"}`} id="descContent">
           <p>Upgrade your kitchen with this ultimate 3-in-1 appliance combo. The Defy 30L Digital Microwave offers spacious capacity with digital touch controls for precise cooking, the Russell Hobbs 6.5L Digital Air Fryer lets you enjoy crispy, oil-free meals with ease, and the Mellerware 1.7L Glass Kettle boils water in under two minutes with a stunning blue LED light. Together, they cover every everyday kitchen need at unbeatable value.</p>
           <p className="text-site-import-foreground font-semibold mt-[12px] mr-0 mb-[6px] ml-0">Defy 30L Digital Microwave:</p>
           <ul className="mt-0 mr-0 mb-[8px] ml-0 pl-[18px]">
@@ -571,12 +590,14 @@ function ImportedSectionDescription() {
           <p className="text-site-import-foreground font-semibold mt-[12px] mr-0 mb-[6px] ml-0">What's in the box</p>
           <p>x 1 Defy 30L Digital Microwave<br />x 1 Russell Hobbs 6.5L Digital Air Fryer<br />x 1 Mellerware 1.7L Glass Kettle<br />x 1 Microwave Glass Turntable Plate<br />x 3 User Manuals</p>
         </div>
+        {expanded ? null : <div className="desc-fade" id="descFade" />}
       </div>
+      <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white \x62order \x62order-solid \x62order-[#\x647d7d7] rounded-[999px] \x74ext-[#\x3222222] cursor-pointer text-[15px] font-bold h-[46px] mt-[12px] mr-0 mb-[16px] ml-0 w-full"} id="showMoreBtn" type="button" aria-expanded={expanded} aria-controls="descContent" onClick={onToggle}>{expanded ? "Show Less" : "Show More"}</button>
     </section>
   );
 }
 
-function ImportedSectionProductInformation() {
+function ImportedSectionProductInformation({ expanded, onToggle }: { expanded: boolean; onToggle: () => void }) {
   return (
     <section className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white pt-[6px] pr-[12px] pb-0 pl-[12px] [border-top:1px_solid_rgb(240,240,240)]" aria-label="Product Information">
       <h2 className="text-site-import-foreground text-[18px] font-semibold mt-[16px] mr-0 mb-[10px] ml-0">Product Information</h2>
@@ -594,12 +615,12 @@ function ImportedSectionProductInformation() {
           <div className={"\x74ext-[#\x3333333] text-[14px] p-[12px]"}>1000 W · 1700 W · 2200 W</div>
         </div>
       </div>
-      <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white \x62order \x62order-solid \x62order-[#\x647d7d7] rounded-[999px] \x74ext-[#\x3222222] cursor-pointer text-[15px] font-semibold h-[46px] mt-[12px] mr-0 mb-[16px] ml-0 w-full"} id="piOpen" type="button">Show More</button>
+      <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white \x62order \x62order-solid \x62order-[#\x647d7d7] rounded-[999px] \x74ext-[#\x3222222] cursor-pointer text-[15px] font-semibold h-[46px] mt-[12px] mr-0 mb-[16px] ml-0 w-full"} id="piOpen" type="button" aria-expanded={expanded} aria-controls="piModal" onClick={onToggle}>Show More</button>
     </section>
   );
 }
 
-function ImportedSectionReviewsPreview() {
+function ImportedSectionReviewsPreview({ onOpen }: { onOpen: () => void }) {
   return (
     <section className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white p-[12px] [border-top:1px_solid_rgb(240,240,240)]" aria-label="Reviews preview">
       <div className="items-center flex gap-[10px] justify-between mb-[10px]">
@@ -623,10 +644,10 @@ function ImportedSectionReviewsPreview() {
           </div>
         </div>
         <div className={"\x74ext-[#\x3444444] text-[14px] leading-[1.4] mb-[8px]"}>This combo is exactly what I needed for my new place. The microwave is roomy, the air fryer cooks chips perfectly crispy without oil, and the glass kettle boils in under two minutes. Amazing value for three appliances.</div>
-        <a className="text-site-import-primary text-[14px] font-semibold no-underline" href="#" id="rvOpenFromReadMore">Read More</a>
+        <a className="text-site-import-primary text-[14px] font-semibold no-underline" href="#" id="rvOpenFromReadMore" onClick={(event) => { event.preventDefault(); onOpen(); }}>Read More</a>
       </div>
       <div className="flex justify-end pt-[8px]">
-        <a className="text-site-import-primary text-[14px] font-semibold no-underline" href="#" id="rvOpenFromViewAll">View All</a>
+        <a className="text-site-import-primary text-[14px] font-semibold no-underline" href="#" id="rvOpenFromViewAll" onClick={(event) => { event.preventDefault(); onOpen(); }}>View All</a>
       </div>
     </section>
   );
