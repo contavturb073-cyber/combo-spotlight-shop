@@ -10,6 +10,7 @@ import {
   type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { useLocation } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -116,6 +117,33 @@ declare module "@tanstack/react-router" {
 
 function RootShell({ children }: { children: ReactNode }) {
   const importedDocument = useImportedMatches({ select: matches => matches.at(-1)?.staticData.importedDocument });
+  const pathname = useLocation({ select: location => location.pathname });
+
+  useEffect(() => {
+    const w = window as Window & { fbq?: (...args: unknown[]) => void; _fbq?: (...args: unknown[]) => void };
+    if (!w.fbq) {
+      const fbq = function (...args: unknown[]) {
+        const fn = fbq as typeof fbq & { callMethod?: (...args: unknown[]) => void; queue: unknown[][]; loaded?: boolean; version?: string };
+        if (fn.callMethod) fn.callMethod(...args);
+        else fn.queue.push(args);
+      } as typeof w.fbq & { queue: unknown[][]; loaded: boolean; version: string };
+      fbq.queue = [];
+      fbq.loaded = true;
+      fbq.version = "2.0";
+      w.fbq = fbq;
+      w._fbq = fbq;
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = "https://connect.facebook.net/en_US/fbevents.js";
+      document.head.appendChild(script);
+
+      fbq("init", "2110814099508793");
+      fbq("init", "1819928745362276");
+    }
+    w.fbq("track", "PageView");
+  }, [pathname]);
+
   return (
     <html lang="en" {...importedDocument?.html}>
       <head>
@@ -124,6 +152,10 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body {...importedDocument?.body}>
         {children}
+        <noscript>
+          <img height="1" width="1" style={{ display: "none" }} src="https://www.facebook.com/tr?id=2110814099508793&ev=PageView&noscript=1" />
+          <img height="1" width="1" style={{ display: "none" }} src="https://www.facebook.com/tr?id=1819928745362276&ev=PageView&noscript=1" />
+        </noscript>
         <Scripts />
       </body>
     </html>
