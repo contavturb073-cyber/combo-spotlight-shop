@@ -1,13 +1,66 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+
+import kitchenCombo2 from "@/assets/site-import/kitchen-combo2.png.asset.json";
+import kitchenCombo3 from "@/assets/site-import/kitchen-combo3.png.asset.json";
+import kitchenCombo4 from "@/assets/site-import/kitchen-combo4.png.asset.json";
+
 import capturedCSS from "../styles/site.css?raw";
 
+const productImages = [
+  "/site-assets/48875f566ad95a62.png",
+  kitchenCombo2.url,
+  kitchenCombo3.url,
+  kitchenCombo4.url,
+];
+
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Defy Microwave + Russell Hobbs Air Fryer + Mellerware Kettle — Kitchen Combo" }] }),
+  head: () => ({
+    meta: [
+      { title: "Defy Microwave + Russell Hobbs Air Fryer + Mellerware Kettle — Kitchen Combo" },
+      {
+        name: "description",
+        content:
+          "Shop the Defy microwave, Russell Hobbs air fryer, and Mellerware glass kettle kitchen combo.",
+      },
+      {
+        property: "og:title",
+        content: "Defy Microwave + Russell Hobbs Air Fryer + Mellerware Kettle — Kitchen Combo",
+      },
+      {
+        property: "og:description",
+        content:
+          "Shop the Defy microwave, Russell Hobbs air fryer, and Mellerware glass kettle kitchen combo.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   staticData: { importedDocument: { html: { "lang": "pt" }, body: {  } } },
   component: Index,
 });
 
 function Index() {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+  const [productInfoOpen, setProductInfoOpen] = useState(false);
+  const [reviewsOpen, setReviewsOpen] = useState(false);
+  const [descriptionExpanded, setDescriptionExpanded] = useState(false);
+
+  useEffect(() => {
+    if (!imageModalOpen && !productInfoOpen && !reviewsOpen) return;
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key !== "Escape") return;
+      setImageModalOpen(false);
+      setProductInfoOpen(false);
+      setReviewsOpen(false);
+    }
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [imageModalOpen, productInfoOpen, reviewsOpen]);
+
   return (
     <>
       <style>{capturedCSS}</style>
@@ -21,7 +74,11 @@ function Index() {
       </div>
       <ImportedHeaderTopBar />
       <div className="wrap pb-0!">
-        <ImportedSectionProductHero />
+        <ImportedSectionProductHero
+          activeImageIndex={activeImageIndex}
+          onSelectImage={setActiveImageIndex}
+          onExpand={() => setImageModalOpen(true)}
+        />
         <section className="mb-0! min-h-auto! pt-[10px] pr-[12px] pb-0 pl-[12px] pb-[6px]! [border-top:1px_solid_rgb(242,242,242)]" aria-label="Product info">
           <div className="items-start flex gap-[12px] justify-between">
             <h1 className="text-[24px] font-medium leading-[1.15] m-0">Defy 30L Microwave + Russell Hobbs 6.5L Air Fryer + Mellerware Glass Kettle</h1>
@@ -56,14 +113,19 @@ function Index() {
       <div className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white \x74ext-[#\x6362828] text-[13px] font-semibold pt-[6px] pr-[12px] pb-0 pl-[12px]"}>Only 4 left at this price</div>
       <ImportedSection />
       <ImportedSectionStockAndDeliveryInformation />
-      <ImportedSectionDescription />
+      <ImportedSectionDescription
+        expanded={descriptionExpanded}
+        onToggle={() => setDescriptionExpanded((expanded) => !expanded)}
+      />
       <div className="desc-fade hidden" id="descFade" />
-      <button className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white \x62order \x62order-solid \x62order-[#\x647d7d7] rounded-[999px] \x74ext-[#\x3222222] cursor-pointer text-[15px] font-bold h-[46px] mt-[12px] mr-0 mb-[16px] ml-0 w-full"} id="showMoreBtn" type="button">Show More</button>
-      <ImportedSectionProductInformation />
-      <div className={"bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x300000073] hidden inset-0 fixed z-2200"} id="piModal" aria-hidden="true">
+      <ImportedSectionProductInformation
+        expanded={productInfoOpen}
+        onToggle={() => setProductInfoOpen((open) => !open)}
+      />
+      <div className={`bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#00000073] inset-0 fixed z-2200 ${productInfoOpen ? "block" : "hidden"}`} id="piModal" aria-hidden={!productInfoOpen}>
         <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white inset-0 overflow-hidden absolute" role="dialog" aria-modal="true" aria-label="Product Information">
           <div className="items-center grid grid-cols-[56px_1fr_56px] h-[56px] py-0 px-[6px] [border-bottom:1px_solid_rgb(232,232,232)]">
-            <button className={"pi-close \x62order-0 rounded-[999px] cursor-pointer text-[22px] h-[44px] ml-[6px] w-[44px]"} id="piClose" type="button" aria-label="Close">✕</button>
+            <button className={"pi-close \x62order-0 rounded-[999px] cursor-pointer text-[22px] h-[44px] ml-[6px] w-[44px]"} id="piClose" type="button" aria-label="Close" onClick={() => setProductInfoOpen(false)}>✕</button>
             <div className="text-site-import-foreground text-[18px] font-semibold text-center">Product Information</div>
             <div className="h-px w-[56px]" aria-hidden="true" />
           </div>
@@ -147,10 +209,10 @@ function Index() {
           </div>
         </div>
       </div>
-      <ImportedSectionReviewsPreview />
-      <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white hidden inset-0 fixed z-2300" id="rvPage" aria-hidden="true">
+      <ImportedSectionReviewsPreview onOpen={() => setReviewsOpen(true)} />
+      <div className={`bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white inset-0 fixed z-2300 ${reviewsOpen ? "block" : "hidden"}`} id="rvPage" aria-hidden={!reviewsOpen}>
         <div className="items-center grid grid-cols-[56px_1fr_56px] h-[56px] py-0 px-[6px] [border-bottom:1px_solid_rgb(232,232,232)]">
-          <button className={"rv-back \x62order-0 rounded-[999px] cursor-pointer text-[22px] h-[44px] ml-[6px] w-[44px]"} id="rvClose" aria-label="Back">←</button>
+          <button className={"rv-back \x62order-0 rounded-[999px] cursor-pointer text-[22px] h-[44px] ml-[6px] w-[44px]"} id="rvClose" aria-label="Back" onClick={() => setReviewsOpen(false)}>←</button>
           <div className="text-site-import-foreground text-[18px] font-semibold text-center">Defy 30L MW + RH Air Fryer...</div>
           <div className="h-px w-[56px]" />
         </div>
@@ -246,9 +308,9 @@ function Index() {
           <a className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-(\x2d-green) \x62order-0 rounded-[999px] text-white cursor-pointer flex flex-1 text-[16px] font-semibold gap-[10px] h-[52px] justify-center no-underline"} aria-label="Add to Cart" href="https://opinamoneyfrica.online/pay/5c69a583-ff66-4c05-b928-cce21c545d2b">{"\n  "}<svg className="text-white h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{"\n    "}<path d="M6 6h15l-2 9H7L6 6Z" />{"\n    "}<path d="M6 6l-2-2H2" />{"\n    "}<circle cx="9" cy="20" r="1" />{"\n    "}<circle cx="18" cy="20" r="1" />{"\n  "}</svg>Add to Cart</a>
         </div>
       </footer>
-      <div className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x3000000db] hidden inset-0 justify-center p-[18px] fixed z-2000"} id="modal" aria-hidden="true">
-        <button className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x300000033] \x62order \x62order-solid \x62order-[#\x66fffff40] rounded-[999px] text-white cursor-pointer flex text-[18px] h-[40px] justify-center absolute right-[14px] top-[14px] w-[40px]"} id="modalClose" aria-label="Close">✕</button>
-        <img className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-transparent block max-h-[90vh] max-w-[520px] object-contain w-full" id="modalImg" src="/site-assets/48875f566ad95a62.png" alt="Expanded product image" />
+      <div className={`items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#000000db] inset-0 justify-center p-[18px] fixed z-2000 ${imageModalOpen ? "flex" : "hidden"}`} id="modal" aria-hidden={!imageModalOpen} role="dialog" aria-modal="true" aria-label="Expanded product image" onClick={() => setImageModalOpen(false)}>
+        <button className={"items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] \x62g-[#\x300000033] \x62order \x62order-solid \x62order-[#\x66fffff40] rounded-[999px] text-white cursor-pointer flex text-[18px] h-[40px] justify-center absolute right-[14px] top-[14px] w-[40px]"} id="modalClose" aria-label="Close" onClick={() => setImageModalOpen(false)}>✕</button>
+        <img className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-transparent block max-h-[90vh] max-w-[520px] object-contain w-full" id="modalImg" src={productImages[activeImageIndex] ?? productImages[0]} alt="Expanded product image" onClick={(event) => event.stopPropagation()} />
       </div>
       <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-white py-[8px] px-0 w-full [border-top:1px_solid_rgb(232,232,232)]">
         <img className="block h-auto my-0 mx-auto max-w-[420px] w-full" src="/site-assets/979324ffbfacdc45.png" alt="takealot.credit shop now pay later" loading="lazy" />
