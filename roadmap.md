@@ -1,0 +1,4 @@
+- [x] Import the supplied home page and captured images.
+- [x] Compare the original page sections and controls on desktop and mobile.
+- [ ] Restore and verify captured gallery, description, information, and review interactions.
+- [ ] Save the source/preview observation ledger and screenshots; verify metadata and build.
