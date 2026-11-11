@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Imported pages
+
+- Keep imported website UI and its interaction state in the route file, and reference added downloaded media through asset pointers, so imported pages stay isolated and deploy reliably.
