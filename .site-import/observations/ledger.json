@@ -75,7 +75,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
-      "status": "failed",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/source_desktop_image_1.png"
       ]
@@ -582,7 +582,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
-      "status": "failed",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/source_phone_image_1.png"
       ]
