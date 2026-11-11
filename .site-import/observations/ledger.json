@@ -2,7 +2,7 @@
   "source_url": "https://yourcombo.lovable.app/",
   "preview_url": "http://localhost:8080/",
   "screenshots_dir": "observations/screenshots",
-  "source_review": "Source screenshots show disabled header/info buttons, but full image gallery, description expansion, product-information details, and reviews open/back controls. No video or nested menu was present. Checkout was not entered.",
+  "source_review": "Source screenshots and saved panel HTML show the full image gallery, description expansion, product-information details, and review open/back controls. Header menu/search/cart/share and delivery-info buttons opened no new content. Reviews sort/filter buttons showed no behavior. No video was present. Checkout was not entered.",
   "checks": [
     {
       "route": "https://yourcombo.lovable.app/",
@@ -75,7 +75,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
-      "status": "pass",
+      "status": "failed",
       "screenshots": [
         "observations/screenshots/source_desktop_image_1.png"
       ]
@@ -205,8 +205,8 @@
       "viewport": "desktop",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Sort\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL https://yourcombo.lovable.app/",
       "status": "blocked",
       "screenshots": []
     },
@@ -215,8 +215,8 @@
       "viewport": "desktop",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Filter\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL https://yourcombo.lovable.app/",
       "status": "blocked",
       "screenshots": []
     },
@@ -258,11 +258,13 @@
       "scroll": "window top through bottom",
       "trigger": "wheel scrolling",
       "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
-      "observed": "document height 2762; reached scrollY 0; 7 labeled sections; 4/4 images loaded; 0 video elements",
-      "status": "failed",
+      "observed": "document height 2762; reached scrollY 962; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_desktop_wheel_1.png",
         "observations/screenshots/preview_desktop_wheel_2.png",
+        "observations/screenshots/preview_desktop_wheel_3.png",
+        "observations/screenshots/preview_desktop_wheel_4.png",
         "observations/screenshots/preview_desktop_bottom.png"
       ]
     },
@@ -333,7 +335,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL http://localhost:8080/; scroll 0; selected image /site-assets/48875f566ad95a62.png",
-      "status": "failed",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_desktop_image_1.png"
       ]
@@ -344,7 +346,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 2\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_desktop_image_2.png"
@@ -380,7 +382,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 3\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_desktop_image_3.png"
@@ -392,7 +394,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 4\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_desktop_image_4.png"
@@ -463,9 +465,9 @@
       "viewport": "desktop",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Sort\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL http://localhost:8080/",
-      "status": "failed",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL http://localhost:8080/",
+      "status": "blocked",
       "screenshots": []
     },
     {
@@ -473,9 +475,9 @@
       "viewport": "desktop",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Filter\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL http://localhost:8080/",
-      "status": "failed",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL http://localhost:8080/",
+      "status": "blocked",
       "screenshots": []
     },
     {
@@ -581,7 +583,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
-      "status": "pass",
+      "status": "failed",
       "screenshots": [
         "observations/screenshots/source_phone_image_1.png"
       ]
@@ -711,8 +713,8 @@
       "viewport": "phone",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Sort\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL https://yourcombo.lovable.app/",
       "status": "blocked",
       "screenshots": []
     },
@@ -721,8 +723,8 @@
       "viewport": "phone",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Filter\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL https://yourcombo.lovable.app/",
       "status": "blocked",
       "screenshots": []
     },
@@ -764,8 +766,8 @@
       "scroll": "window top through bottom",
       "trigger": "wheel scrolling",
       "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
-      "observed": "document height 2879; reached scrollY 0; 7 labeled sections; 4/4 images loaded; 0 video elements",
-      "status": "failed",
+      "observed": "document height 2879; reached scrollY 1079; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_phone_wheel_1.png",
         "observations/screenshots/preview_phone_wheel_2.png",
@@ -839,7 +841,7 @@
       "trigger": "button[aria-label=\"Image 1\"]",
       "expected": "image",
       "observed": "URL http://localhost:8080/; scroll 0; selected image /site-assets/48875f566ad95a62.png",
-      "status": "failed",
+      "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_phone_image_1.png"
       ]
@@ -850,7 +852,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 2\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_phone_image_2.png"
@@ -886,7 +888,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 3\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_phone_image_3.png"
@@ -898,7 +900,7 @@
       "scroll": "window at top",
       "trigger": "button[aria-label=\"Image 4\"]",
       "expected": "image",
-      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
+      "observed": "URL http://localhost:8080/; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
       "status": "pass",
       "screenshots": [
         "observations/screenshots/preview_phone_image_4.png"
@@ -969,9 +971,9 @@
       "viewport": "phone",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Sort\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL http://localhost:8080/",
-      "status": "failed",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL http://localhost:8080/",
+      "status": "blocked",
       "screenshots": []
     },
     {
@@ -979,9 +981,9 @@
       "viewport": "phone",
       "scroll": "window at top",
       "trigger": "#rvPage button:text(\"Filter\")",
-      "expected": "observed sort/filter panel or changed review listing",
-      "observed": "review text unchanged; page URL http://localhost:8080/",
-      "status": "failed",
+      "expected": "observe the original sort/filter control response",
+      "observed": "review text unchanged; no submenu or popup exposed; page URL http://localhost:8080/",
+      "status": "blocked",
       "screenshots": []
     },
     {
