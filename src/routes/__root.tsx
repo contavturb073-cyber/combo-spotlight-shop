@@ -120,13 +120,12 @@ function RootShell({ children }: { children: ReactNode }) {
   const pathname = useLocation({ select: location => location.pathname });
 
   useEffect(() => {
-    const w = window as Window & { fbq?: (...args: unknown[]) => void; _fbq?: (...args: unknown[]) => void };
+    const w = window as any;
     if (!w.fbq) {
       const fbq = function (...args: unknown[]) {
-        const fn = fbq as typeof fbq & { callMethod?: (...args: unknown[]) => void; queue: unknown[][]; loaded?: boolean; version?: string };
-        if (fn.callMethod) fn.callMethod(...args);
-        else fn.queue.push(args);
-      } as typeof w.fbq & { queue: unknown[][]; loaded: boolean; version: string };
+        if (fbq.callMethod) fbq.callMethod(...args);
+        else fbq.queue.push(args);
+      } as any;
       fbq.queue = [];
       fbq.loaded = true;
       fbq.version = "2.0";
