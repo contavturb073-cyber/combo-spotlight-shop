@@ -1,0 +1,1020 @@
+{
+  "source_url": "https://yourcombo.lovable.app/",
+  "preview_url": "http://localhost:8080/",
+  "screenshots_dir": "observations/screenshots",
+  "source_review": "Source screenshots show disabled header/info buttons, but full image gallery, description expansion, product-information details, and reviews open/back controls. No video or nested menu was present. Checkout was not entered.",
+  "checks": [
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window top through bottom",
+      "trigger": "wheel scrolling",
+      "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
+      "observed": "document height 2762; reached scrollY 962; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_wheel_1.png",
+        "observations/screenshots/source_desktop_wheel_2.png",
+        "observations/screenshots/source_desktop_bottom.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Menu\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Search\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Cart\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Share\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"More info\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 1\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_image_1.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 2\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo2.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_image_2.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Expand image\"]",
+      "expected": "image_dialog",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; image panel aria-hidden=false",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_expand_image.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#modalClose",
+      "expected": "image_closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; image panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_close_image.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 3\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo3.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_image_3.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 4\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo4.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_image_4.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_expanded",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; description state desc-box relative ; button says Show Less",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_description_expand.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_collapsed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; description state desc-box relative is-collapsed; button says Show More",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_description_collapse.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#piOpen",
+      "expected": "product_info",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; product info panel aria-hidden=false; barcode visible in content=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_open_product_information.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#piClose",
+      "expected": "closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; ",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_close_product_information.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "a#rvOpenFromViewAll",
+      "expected": "reviews",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; reviews panel aria-hidden=false; review count visible=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_open_reviews.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Sort\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Filter\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#rvClose",
+      "expected": "closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 962; ",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_desktop_back_from_reviews.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "Add to Cart link",
+      "expected": "preserve original external destination without entering checkout",
+      "observed": "https://opinamoneyfrica.online/pay/5c69a583-ff66-4c05-b928-cce21c545d2b",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "page load and control checks",
+      "expected": "no page errors",
+      "observed": "none",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window top through bottom",
+      "trigger": "wheel scrolling",
+      "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
+      "observed": "document height 2762; reached scrollY 0; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "failed",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_wheel_1.png",
+        "observations/screenshots/preview_desktop_wheel_2.png",
+        "observations/screenshots/preview_desktop_bottom.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Menu\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_menu.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Search\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_search.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Cart\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_cart.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Share\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_share.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"More info\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_delivery info.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 1\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /site-assets/48875f566ad95a62.png",
+      "status": "failed",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_image_1.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 2\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_image_2.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Expand image\"]",
+      "expected": "image_dialog",
+      "observed": "URL http://localhost:8080/; scroll 0; image panel aria-hidden=false",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_expand_image.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "image panel closes",
+      "observed": "image panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 3\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_image_3.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 4\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_image_4.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_expanded",
+      "observed": "URL http://localhost:8080/; scroll 962; description state desc-box relative ; button says Show Less",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_description_expand.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_collapsed",
+      "observed": "URL http://localhost:8080/; scroll 962; description state desc-box relative is-collapsed; button says Show More",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_description_collapse.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "button#piOpen",
+      "expected": "product_info",
+      "observed": "URL http://localhost:8080/; scroll 962; product info panel aria-hidden=false; barcode visible in content=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_open_product_information.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "product information panel closes",
+      "observed": "product info panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_product_info_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "a#rvOpenFromViewAll",
+      "expected": "reviews",
+      "observed": "URL http://localhost:8080/; scroll 962; reviews panel aria-hidden=false; review count visible=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_open_reviews.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Sort\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL http://localhost:8080/",
+      "status": "failed",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Filter\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL http://localhost:8080/",
+      "status": "failed",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "reviews panel closes",
+      "observed": "reviews panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_desktop_reviews_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "Add to Cart link",
+      "expected": "preserve original external destination without entering checkout",
+      "observed": "https://opinamoneyfrica.online/pay/5c69a583-ff66-4c05-b928-cce21c545d2b",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "desktop",
+      "scroll": "window at top",
+      "trigger": "page load and control checks",
+      "expected": "no page errors",
+      "observed": "none",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window top through bottom",
+      "trigger": "wheel scrolling",
+      "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
+      "observed": "document height 2879; reached scrollY 1079; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_wheel_1.png",
+        "observations/screenshots/source_phone_wheel_2.png",
+        "observations/screenshots/source_phone_bottom.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Menu\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Search\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Cart\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Share\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"More info\"]",
+      "expected": "no_change",
+      "observed": "Original page click produced no panel or state change; there was no opened menu/search/cart/info content to recreate.",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 1\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/415ff62179f3d7b8.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_image_1.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 2\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo2.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_image_2.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Expand image\"]",
+      "expected": "image_dialog",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; image panel aria-hidden=false",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_expand_image.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#modalClose",
+      "expected": "image_closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; image panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_close_image.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 3\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo3.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_image_3.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 4\"]",
+      "expected": "image",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 0; selected image /site-assets/kitchen-combo4.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_image_4.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_expanded",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; description state desc-box relative ; button says Show Less",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_description_expand.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_collapsed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; description state desc-box relative is-collapsed; button says Show More",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_description_collapse.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#piOpen",
+      "expected": "product_info",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; product info panel aria-hidden=false; barcode visible in content=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_open_product_information.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#piClose",
+      "expected": "closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; ",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_close_product_information.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "a#rvOpenFromViewAll",
+      "expected": "reviews",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; reviews panel aria-hidden=false; review count visible=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_open_reviews.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Sort\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Filter\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL https://yourcombo.lovable.app/",
+      "status": "blocked",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#rvClose",
+      "expected": "closed",
+      "observed": "URL https://yourcombo.lovable.app/; scroll 1056; ",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/source_phone_back_from_reviews.png"
+      ]
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "Add to Cart link",
+      "expected": "preserve original external destination without entering checkout",
+      "observed": "https://opinamoneyfrica.online/pay/5c69a583-ff66-4c05-b928-cce21c545d2b",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "https://yourcombo.lovable.app/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "page load and control checks",
+      "expected": "no page errors",
+      "observed": "none",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window top through bottom",
+      "trigger": "wheel scrolling",
+      "expected": "all captured product, delivery, description, details, reviews, and footer sections visible",
+      "observed": "document height 2879; reached scrollY 0; 7 labeled sections; 4/4 images loaded; 0 video elements",
+      "status": "failed",
+      "screenshots": [
+        "observations/screenshots/preview_phone_wheel_1.png",
+        "observations/screenshots/preview_phone_wheel_2.png",
+        "observations/screenshots/preview_phone_bottom.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Menu\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_menu.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Search\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_search.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Cart\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_cart.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Share\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_share.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"More info\"]",
+      "expected": "no_change",
+      "observed": "URL http://localhost:8080/; scroll 0; no panel or image state changed after click",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_delivery info.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 1\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /site-assets/48875f566ad95a62.png",
+      "status": "failed",
+      "screenshots": [
+        "observations/screenshots/preview_phone_image_1.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 2\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/98ba6cb4-9730-428f-910a-1a61311d7c31/kitchen-combo2.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_image_2.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Expand image\"]",
+      "expected": "image_dialog",
+      "observed": "URL http://localhost:8080/; scroll 0; image panel aria-hidden=false",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_expand_image.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "image panel closes",
+      "observed": "image panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 3\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/41904686-1d73-4c2c-987c-e0329644a8b7/kitchen-combo3.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_image_3.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button[aria-label=\"Image 4\"]",
+      "expected": "image",
+      "observed": "URL http://localhost:8080/; scroll 0; selected image /__l5e/assets-v1/bd7f7c9c-7c5f-4f01-9b0a-d9320342cb67/kitchen-combo4.png",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_image_4.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_expanded",
+      "observed": "URL http://localhost:8080/; scroll 1056; description state desc-box relative ; button says Show Less",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_description_expand.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#showMoreBtn",
+      "expected": "description_collapsed",
+      "observed": "URL http://localhost:8080/; scroll 1056; description state desc-box relative is-collapsed; button says Show More",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_description_collapse.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "button#piOpen",
+      "expected": "product_info",
+      "observed": "URL http://localhost:8080/; scroll 1056; product info panel aria-hidden=false; barcode visible in content=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_open_product_information.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "product information panel closes",
+      "observed": "product info panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_product_info_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "a#rvOpenFromViewAll",
+      "expected": "reviews",
+      "observed": "URL http://localhost:8080/; scroll 1056; reviews panel aria-hidden=false; review count visible=True",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_open_reviews.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Sort\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL http://localhost:8080/",
+      "status": "failed",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "#rvPage button:text(\"Filter\")",
+      "expected": "observed sort/filter panel or changed review listing",
+      "observed": "review text unchanged; page URL http://localhost:8080/",
+      "status": "failed",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "Escape key",
+      "expected": "reviews panel closes",
+      "observed": "reviews panel aria-hidden=true",
+      "status": "pass",
+      "screenshots": [
+        "observations/screenshots/preview_phone_reviews_escape_close.png"
+      ]
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "Add to Cart link",
+      "expected": "preserve original external destination without entering checkout",
+      "observed": "https://opinamoneyfrica.online/pay/5c69a583-ff66-4c05-b928-cce21c545d2b",
+      "status": "pass",
+      "screenshots": []
+    },
+    {
+      "route": "http://localhost:8080/",
+      "viewport": "phone",
+      "scroll": "window at top",
+      "trigger": "page load and control checks",
+      "expected": "no page errors",
+      "observed": "none",
+      "status": "pass",
+      "screenshots": []
+    }
+  ]
+}
