@@ -268,3 +268,7 @@
   --tracking-widest: .1em;
 }
 /* site-import tokens: end */
+
+#lovable-badge {
+  display: none !important;
+}
